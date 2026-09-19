@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michelle - Tatuajes, Cuadros, Murales y Talleres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header">
+    <div class="header__contenedor">
+
+        <a href="#inicio" class="header__logo">
+            <img src="assets/img/logo.jpg" alt="Michelle">
+        </a>
+
+        <div class="idiomas" id="idiomasHeader">
+            <button class="idiomas__toggle" aria-label="Cambiar idioma">
+                <img src="https://flagcdn.com/w40/es.png" alt="Idioma actual">
+                <span class="idiomas__flecha">▾</span>
+            </button>
+            <div class="idiomas__menu">
+                <button class="idiomas__opcion idiomas__opcion--activo" data-idioma="es">
+                    <img src="https://flagcdn.com/w40/es.png" alt="Español">
+                    <span>Español</span>
+                </button>
+                <button class="idiomas__opcion" data-idioma="it">
+                    <img src="https://flagcdn.com/w40/it.png" alt="Italiano">
+                    <span>Italiano</span>
+                </button>
+                <button class="idiomas__opcion" data-idioma="en">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                    <span>English</span>
+                </button>
+                <button class="idiomas__opcion" data-idioma="pt">
+                    <img src="https://flagcdn.com/w40/pt.png" alt="Português">
+                    <span>Português</span>
+                </button>
+            </div>
+        </div>
+
+        <button class="header__hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav" id="menuPrincipal">
+            <ul class="nav__lista">
+                <li><a href="#inicio" class="nav__link" data-i18n="menu_inicio">Inicio</a></li>
+                <li><a href="#sobre" class="nav__link" data-i18n="menu_biografia">Biografía</a></li>
+                <li><a href="#tatuajes" class="nav__link" data-i18n="menu_tatuajes">Tatuajes</a></li>
+                <li><a href="#cuadros" class="nav__link" data-i18n="menu_cuadros">Obras</a></li>
+                <li class="nav__item-dropdown">
+                    <button class="nav__link nav__link--dropdown" type="button">
+                        <span data-i18n="menu_obras_disponibles">Obras disponibles</span>
+                        <span class="nav__flecha">▾</span>
+                    </button>
+                    <ul class="nav__submenu">
+                        <li><button class="nav__submenu-item" data-categoria="cuadros" data-i18n="cat_cuadros">Cuadros</button></li>
+                        <li><button class="nav__submenu-item" data-categoria="arte-para-llevar" data-i18n="cat_arte_llevar">Arte para llevar</button></li>
+                    </ul>
+                </li>
+                <li><a href="#murales" class="nav__link" data-i18n="menu_murales">Murales</a></li>
+                <li><a href="#eventos" class="nav__link" data-i18n="menu_eventos">Eventos</a></li>
+                <li><a href="#talleres" class="nav__link" data-i18n="menu_talleres">Talleres</a></li>
+                <li><a href="#contacto" class="nav__link" data-i18n="menu_contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+       <main>
+
+        <section class="hero" id="inicio">
+            <div class="hero__contenido">
+                <h1 class="hero__titulo" data-i18n="hero_titulo">El acto de crear</h1>
+                <p class="hero__subtitulo" data-i18n="hero_subtitulo">
+                    Crear es mi lenguaje y la libertad de encontrar nuevas formas de hacerlo es lo que me define
+                </p>
+               <a href="#contacto" class="hero__boton" data-i18n="hero_boton">Consultar</a>
+            </div>
+        </section>
+        <!-- ============================
+             SOBRE MICHELLE
+             ============================ -->
+        <section class="sobre" id="sobre">
+            <div class="sobre__contenedor">
+
+                                <div class="sobre__imagen">
+                    <img src="assets/img/michelle.jpg" alt="Michelle, artista visual y tatuadora">
+                </div>
+
+                <div class="sobre__texto">
+                    <p class="sobre__etiqueta" data-i18n="sobre_etiqueta">Artista visual · Tatuadora</p>
+                    <h2 class="sobre__titulo" data-i18n="sobre_titulo">Michelle</h2>
+                    <p class="sobre__parrafo" data-i18n="sobre_p1">
+                        Soy Micaela Melón, y Michelle es el nombre desde el que desarrollo mi práctica artística.
+                        Soy una artista visual y tatuadora cuya práctica nace de una necesidad constante de crear.
+                    </p>
+                    <p class="sobre__parrafo" data-i18n="sobre_p2">
+                        Trabajo a través del dibujo, la pintura, el tatuaje, el textil y la experimentación con
+                        distintos lenguajes y materiales. No me defino por una técnica, sino por el acto de crear.
+                    </p>
+                    <p class="sobre__parrafo" data-i18n="sobre_p3">
+                        Para mí, crear es transformar aquello que todavía no tiene forma: una idea, una necesidad,
+                        una sensación o algo que apenas comienza a aparecer.
+                    </p>
+                    <a href="#historia" class="sobre__boton" data-i18n="sobre_boton">Conocer más</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================
+             MI HISTORIA
+             ============================ -->
+        <section class="historia" id="historia">
+            <div class="historia__contenedor">
+
+                <h2 class="historia__titulo" data-i18n="historia_titulo">Mi historia</h2>
+                <p class="historia__intro" data-i18n="historia_intro">
+                    Un recorrido por las etapas que fueron dando forma a mi práctica artística.
+                </p>
+
+                <div class="historia__etapas">
+
+                    <article class="etapa">
+                        <h3 class="etapa__titulo" data-i18n="etapa1_titulo">Refugio</h3>
+                        <p class="etapa__texto" data-i18n="etapa1_texto">
+                            No recuerdo con claridad el momento exacto en que el arte apareció en mi vida.
+                            Sí recuerdo que dibujar fue uno de los primeros lugares a los que llegué para crear.
+                            Durante mucho tiempo, crear fue una forma de abstraerme del ruido. Un espacio donde
+                            podía concentrarme, meditar y volver a escucharme. Lo que quizás comenzó como una
+                            forma de escapar del mundo terminó convirtiéndose en una forma de volver a mí.
+                        </p>
+                    </article>
+
+                    <article class="etapa">
+                        <h3 class="etapa__titulo" data-i18n="etapa2_titulo">Necesidad</h3>
+                        <p class="etapa__texto" data-i18n="etapa2_texto">
+                            Con el tiempo, crear dejó de ser solamente un refugio. Apareció una necesidad de hacer,
+                            experimentar, probar y aprender. De aceptar desafíos y descubrir cómo llevar una idea
+                            hasta donde todavía no sabía que podía llegar. Crear empezó a ocupar cada vez más
+                            espacio en mi vida, casi de manera natural.
+                        </p>
+                    </article>
+
+                    <article class="etapa">
+                        <h3 class="etapa__titulo" data-i18n="etapa3_titulo">Experimentación</h3>
+                        <p class="etapa__texto" data-i18n="etapa3_texto">
+                            Nunca sentí que tuviera que elegir un único lenguaje. Dibujo, pintura, tatuaje, costura
+                            y otras formas de creación manual fueron apareciendo como distintas posibilidades para
+                            expresar y materializar ideas. No me interesa repetir una fórmula. Me interesa descubrir
+                            qué necesita cada idea para convertirse en algo real.
+                        </p>
+                    </article>
+
+                    <article class="etapa">
+                        <h3 class="etapa__titulo" data-i18n="etapa4_titulo">Demandas</h3>
+                        <p class="etapa__texto" data-i18n="etapa4_texto">
+                            En algún momento, otras personas empezaron a acercarse a mí con sus propias ideas y
+                            necesidades. Una imagen, un objeto, una prenda, un tatuaje, una propuesta. Y descubrí
+                            que disfrutaba profundamente ese desafío: escuchar, imaginar, experimentar, resolver
+                            y transformar algo que todavía no tenía forma en algo que pudiera existir. Muchas veces,
+                            la idea deja de ser solamente de quien la trae. En la conversación se cruzan miradas,
+                            se entrelazan ideas y la creación termina siendo compartida. No estoy solamente creando
+                            para alguien. Muchas veces estoy creando con alguien.
+                        </p>
+                    </article>
+
+                    <article class="etapa">
+                        <h3 class="etapa__titulo" data-i18n="etapa5_titulo">Oficio</h3>
+                        <p class="etapa__texto" data-i18n="etapa5_texto">
+                            Poco a poco, esa demanda externa hizo que el arte ocupara la mayor parte de mis días.
+                            Sin haberlo planeado de una manera concreta, crear dejó de ser un pasatiempo y se
+                            convirtió en mi oficio. Pero la parte más importante nunca fue simplemente poder
+                            trabajar del arte. Fue descubrir que aquello que necesitaba hacer también podía ser
+                            una manera de acompañar, interpretar y dar forma a las ideas de otras personas.
+                        </p>
+                    </article>
+
+                    <article class="etapa">
+                        <h3 class="etapa__titulo" data-i18n="etapa6_titulo">Presente</h3>
+                        <p class="etapa__texto" data-i18n="etapa6_texto">
+                            Hoy sigo creando desde ese mismo lugar. Con curiosidad, exigencia y una necesidad
+                            constante de experimentar y superarme un poco más. Creo tanto para otros como para mí.
+                            Porque incluso si nadie me pidiera nada, seguiría creando: para sacar lo que llevo
+                            dentro, poder observarlo desde otro lugar, hacerme preguntas y encontrar calma.
+                            Hoy mi práctica sigue creciendo y tomando nuevas formas. No sé cuál será el próximo
+                            lenguaje que voy a explorar. Y no necesito saberlo todavía. Mientras exista algo que
+                            necesite ser creado, voy a seguir buscando la manera de darle vida.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <!-- ============================
+             SERVICIOS
+             ============================ -->
+        <section class="servicios" id="servicios">
+            <div class="servicios__contenedor">
+
+                <h2 class="servicios__titulo" data-i18n="servicios_titulo">Servicios</h2>
+                <p class="servicios__intro" data-i18n="servicios_intro">
+                    Cada propuesta se piensa y se trabaja de forma personalizada.
+                </p>
+
+                                <!-- ============ TATUAJES ============ -->
+                <div class="servicio" id="tatuajes">
+                    <div class="servicio__cabecera">
+                        <h3 class="servicio__titulo" data-i18n="serv_tatuajes_titulo">Tatuajes</h3>
+                        <p class="servicio__descripcion" data-i18n="serv_tatuajes_desc">
+                            Diseños personalizados, desde piezas pequeñas hasta proyectos.
+                        </p>
+                    </div>
+                    <div class="servicio__grid">
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tat-pequenos" data-count="26"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tat1_titulo">Oferta de tatuajes pequeños</h4>
+                                <div class="subservicio__texto" data-i18n="tat1_texto">
+                                    <p class="subservicio__subtitulo">🖤 MINI FLASH — TORINO</p>
+                                    <p>Tatuajes pequeños, grandes historias.</p>
+                                    <p>Una selección de diseños originales disponibles en Torino desde <strong>60 €</strong>.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino</li>
+                                        <li>🎨 Diseños originales</li>
+                                        <li>📩 Escribime por DM para ver los flashes disponibles.</li>
+                                    </ul>
+                                    <p class="subservicio__nota">Cupos limitados.</p>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tat-pequenos-personalizado" data-count="9"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tat2_titulo">Personalizados</h4>
+                                <div class="subservicio__texto" data-i18n="tat2_texto">
+                                    <p class="subservicio__subtitulo">✨ TU PEQUEÑO TATUAJE</p>
+                                    <p>¿Tenés una idea pero no sabés cómo transformarla en un diseño?</p>
+                                    <p>Creo un pequeño tatuaje personalizado a partir de tu idea.</p>
+                                    <p><strong>Tatuaje personalizado desde 80 €</strong></p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino</li>
+                                        <li>📩 Escribime por DM y contame tu idea.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tat-mediano" data-count="20"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tat3_titulo">Tatuajes medianos/grandes</h4>
+                                <div class="subservicio__texto" data-i18n="tat3_texto">
+                                    <p class="subservicio__subtitulo">🎨 PIEZA DE AUTOR</p>
+                                    <p>No es un tatuaje cualquiera.</p>
+                                    <p>Un diseño original creado para vos y transformado en un tatuaje.</p>
+                                    <p><strong>Desde 150 €</strong></p>
+                                    <p>El tamaño y el precio se definirán según el proyecto.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino</li>
+                                        <li>📩 Escribime por DM y contame tu idea.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tat-proyecto" data-count="10"></div>
+                            <div class="subservicio__info">
+                              <h4 class="subservicio__nombre" data-i18n="tat6_titulo">Proyectos &amp; Covers</h4>
+                                <div class="subservicio__texto" data-i18n="tat6_texto">
+                                    <p class="subservicio__subtitulo">PROYECTO DE TATUAJE</p>
+                                    <p>Una idea, una historia, una imagen o simplemente algo que querés llevar en la piel.</p>
+                                    <p>Cada tatuaje comienza con una conversación. A partir de tu idea, desarrollo un diseño original pensado para vos, teniendo en cuenta tu cuerpo, tu estilo y la forma en la que quiero que la obra se integre a tu piel.</p>
+                                    <p>No se trata solamente de tatuar una imagen.<br>Se trata de transformar una idea en una pieza de arte que pasa a formar parte de vos.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🎨 Diseño personalizado</li>
+                                        <li>🖋️ Desarrollo artístico</li>
+                                        <li>🖤 Tatuaje realizado a medida</li>
+                                        <li>📍 Torino</li>
+                                    </ul>
+                                    <p><strong>Contame tu idea y empecemos a crearla.</strong></p>
+                                    <p>📩 Reservá una consulta y contame tu idea.</p>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                                <!-- ============ CUADROS ============ -->
+                <div class="servicio" id="cuadros">
+                    <div class="servicio__cabecera">
+                        <h3 class="servicio__titulo" data-i18n="serv_cuadros_titulo">Obras</h3>
+                        <p class="servicio__descripcion" data-i18n="serv_cuadros_desc">
+                            Obras originales y encargos personalizados en distintos formatos.
+                        </p>
+                    </div>
+                    <div class="servicio__grid">
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="cua-personalizadas" data-count="16"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="cua3_titulo">Obras personalizadas</h4>
+                                <div class="subservicio__texto" data-i18n="cua3_texto">
+                                    <p class="subservicio__subtitulo">🎨 TU IDEA. MI ARTE.</p>
+                                    <p>¿Hay una imagen, una historia o un lugar que quieras convertir en una obra?</p>
+                                    <p>Creo piezas personalizadas a partir de tu idea, adaptando la composición, el estilo y el formato a tu espacio.</p>
+                                    <p><strong>Obras personalizadas desde 250 €</strong></p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino</li>
+                                        <li>📩 Contame tu idea por DM y armamos el proyecto.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                
+                                                <article class="subservicio">
+                            <div class="carousel" data-folder="art-textil" data-count="25"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tex1_titulo">Arte textil</h4>
+                                <div class="subservicio__texto" data-i18n="tex1_texto">
+                                    <p class="subservicio__subtitulo">ARTE TEXTIL</p>
+                                    <p>El arte también puede tocarse.</p>
+                                    <p>Exploro el mundo textil como otro espacio para crear, combinando materiales, texturas, formas y colores para transformar una idea en una pieza única.</p>
+                                    <p>Cada obra nace de la experimentación y de la búsqueda de nuevas maneras de expresar una mirada artística, sin limitarme a una sola técnica o soporte.</p>
+                                    <p>Porque crear también es descubrir nuevas formas de hacerlo.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🧵 Creaciones textiles</li>
+                                        <li>🎨 Piezas únicas</li>
+                                        <li>✨ Experimentación con materiales y texturas</li>
+                                        <li>🖐️ Trabajo artesanal</li>
+                                    </ul>
+                                    <p><strong>Una idea, diferentes materiales. Infinitas formas de crear.</strong></p>
+                                    <p>📩 Escribime para conocer las piezas disponibles o desarrollar un proyecto personalizado.</p>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                        <!-- ============================
+             OBRAS DISPONIBLES
+             ============================ -->
+        <section class="obras-disponibles" id="obras-disponibles">
+            <div class="obras-disponibles__contenedor">
+
+                <h2 class="obras-disponibles__titulo" data-i18n="obras_disp_titulo">Obras disponibles</h2>
+                <p class="obras-disponibles__intro" data-i18n="obras_disp_intro">
+                    Una selección de obras originales listas para encontrar su lugar. Escribime para coordinar la compra.
+                </p>
+
+                <div class="obras-disponibles__grid">
+
+                    <article class="obras-disponibles__card">
+                        <div class="obras-disponibles__imagen">
+                            <img src="assets/img/catalogo/cuadros/1.jpg" alt="Cuadros">
+                        </div>
+                        <div class="obras-disponibles__card-info">
+                            <h3 data-i18n="cat_cuadros">Cuadros</h3>
+                            <p data-i18n="obras_disp_cuadros_desc">Pinturas originales disponibles para tu espacio.</p>
+                            <button class="obras-disponibles__btn" data-categoria="cuadros" data-i18n="ver_catalogo">Ver catálogo</button>
+                        </div>
+                    </article>
+
+                    <article class="obras-disponibles__card">
+                        <div class="obras-disponibles__imagen">
+                            <img src="assets/img/catalogo/arte-para-llevar/1.jpg" alt="Arte para llevar">
+                        </div>
+                        <div class="obras-disponibles__card-info">
+                            <h3 data-i18n="cat_arte_llevar">Arte para llevar</h3>
+                            <p data-i18n="obras_disp_textil_desc">Piezas únicas hechas a mano, listas para acompañarte.</p>
+                            <button class="obras-disponibles__btn" data-categoria="arte-para-llevar" data-i18n="ver_catalogo">Ver catálogo</button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+                 
+                               <!-- ============ MURALES ============ -->
+                <div class="servicio" id="murales">
+                    <div class="servicio__cabecera">
+                        <h3 class="servicio__titulo" data-i18n="serv_murales_titulo">Murales</h3>
+                        <p class="servicio__descripcion" data-i18n="serv_murales_desc">
+                            Intervenciones murales para espacios interiores y exteriores.
+                        </p>
+                    </div>
+                    <div class="servicio__grid">
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="mur-pequeno" data-count="3"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="mur1_titulo">Mural pequeño</h4>
+                                <div class="subservicio__texto" data-i18n="mur1_texto">
+                                    <p class="subservicio__subtitulo">🎨 TU PARED PUEDE SER UNA OBRA DE ARTE.</p>
+                                    <p>Creo murales personalizados para transformar espacios y convertir una pared común en una pieza única.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🏠 Casas</li>
+                                        <li>☕ Cafés y restaurantes</li>
+                                        <li>🏨 Hoteles</li>
+                                        <li>🏢 Negocios y locales</li>
+                                        <li>🎭 Espacios culturales</li>
+                                    </ul>
+                                    <p><strong>Murales desde 400 €</strong></p>
+                                    <p>El precio final depende del tamaño, diseño, materiales y horas de trabajo.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino y alrededores</li>
+                                        <li>📩 Enviame una foto del espacio + una idea y preparo una propuesta.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="mur-mediano" data-count="3"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="mur2_titulo">Mural mediano</h4>
+                                <div class="subservicio__texto" data-i18n="mur2_texto">
+                                    <p class="subservicio__subtitulo">🎨 TU PARED PUEDE SER UNA OBRA DE ARTE.</p>
+                                    <p>Creo murales personalizados para transformar espacios y convertir una pared común en una pieza única.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🏠 Casas</li>
+                                        <li>☕ Cafés y restaurantes</li>
+                                        <li>🏨 Hoteles</li>
+                                        <li>🏢 Negocios y locales</li>
+                                        <li>🎭 Espacios culturales</li>
+                                    </ul>
+                                    <p><strong>Murales desde 700 €</strong></p>
+                                    <p>El precio final depende del tamaño, diseño, materiales y horas de trabajo.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino y alrededores</li>
+                                        <li>📩 Enviame una foto del espacio + una idea y preparo una propuesta.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="mur-grande" data-count="6"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="mur3_titulo">Mural grande</h4>
+                                <div class="subservicio__texto" data-i18n="mur3_texto">
+                                    <p class="subservicio__subtitulo">🎨 TU PARED PUEDE SER UNA OBRA DE ARTE.</p>
+                                    <p>Creo murales personalizados para transformar espacios y convertir una pared común en una pieza única.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🏠 Casas</li>
+                                        <li>☕ Cafés y restaurantes</li>
+                                        <li>🏨 Hoteles</li>
+                                        <li>🏢 Negocios y locales</li>
+                                        <li>🎭 Espacios culturales</li>
+                                    </ul>
+                                    <p><strong>Murales desde 1000 €</strong></p>
+                                    <p>El precio final depende del tamaño, diseño, materiales y horas de trabajo.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino y alrededores</li>
+                                        <li>📩 Enviame una foto del espacio + una idea y preparo una propuesta.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- ============ EVENTOS ============ -->
+                                <!-- ============ EVENTOS ============ -->
+                <div class="servicio" id="eventos">
+                    <div class="servicio__cabecera">
+                        <h3 class="servicio__titulo" data-i18n="serv_eventos_titulo">Eventos</h3>
+                        <p class="servicio__descripcion" data-i18n="serv_eventos_desc">
+                            Propuestas creativas para celebraciones y encuentros.
+                        </p>
+                    </div>
+                    <div class="servicio__grid">
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="eve-casamientos" data-count="3"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="eve1_titulo">Casamientos — Live Painting</h4>
+                                <div class="subservicio__texto" data-i18n="eve1_texto">
+                                    <p class="subservicio__subtitulo">💍 TU CASAMIENTO, CONVERTIDO EN UNA OBRA DE ARTE.</p>
+                                    <p>Mientras ustedes celebran, yo transformo ese momento en una pintura realizada en vivo.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🎨 Live Painting</li>
+                                        <li>💍 Casamientos</li>
+                                        <li>🖼️ Una obra original para conservar para siempre</li>
+                                    </ul>
+                                    <p><strong>Experiencias desde 500 €</strong></p>
+                                    <p>Podemos pintar:</p>
+                                    <ul class="subservicio__lista">
+                                        <li>✨ La ceremonia</li>
+                                        <li>🥂 El brindis</li>
+                                        <li>💃 El primer baile</li>
+                                        <li>❤️ Un momento especial de la pareja</li>
+                                    </ul>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino y alrededores</li>
+                                        <li>📩 Consultá disponibilidad para tu fecha.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="eve-casamientos-tatuaje" data-count="4"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="eve2_titulo">Casamientos — Wedding Tattoo</h4>
+                                <div class="subservicio__texto" data-i18n="eve2_texto">
+                                    <p class="subservicio__subtitulo">💍 UN RECUERDO DE TU CASAMIENTO QUE SE QUEDA PARA SIEMPRE.</p>
+                                    <p>Creá un diseño exclusivo para tu boda y compartilo con tus invitados.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🖋️ Flash personalizado</li>
+                                        <li>💍 Diseño exclusivo para el evento</li>
+                                        <li>🖤 Tatuajes pequeños para invitados</li>
+                                        <li>📍 Torino y alrededores</li>
+                                    </ul>
+                                    <p><strong>Wedding Tattoo Experience desde 800 €</strong></p>
+                                    <p>Una experiencia diferente para una boda que nadie va a olvidar.</p>
+                                    <p>📩 Consultá disponibilidad para tu fecha.</p>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                                                <article class="subservicio">
+                            <div class="carousel" data-folder="eve-privados" data-count="16"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="eve4_titulo">Eventos privados</h4>
+                                <div class="subservicio__texto" data-i18n="eve4_texto">
+                                    <p class="subservicio__subtitulo">🎨 ¿Y SI TU EVENTO TERMINARA CON UNA OBRA DE ARTE?</p>
+                                    <p>Hay momentos que merecen ser recordados de una manera especial.</p>
+                                    <p>Pinto en vivo durante tu evento y transformo una celebración, una experiencia o un momento importante en una <strong>obra original que podés conservar</strong>.</p>
+                                    <p class="subservicio__subtitulo">✨ LIVE PAINTING</p>
+                                    <p>Una propuesta pensada para acompañar y darle una identidad artística a diferentes tipos de eventos:</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🎂 Cumpleaños y aniversarios</li>
+                                        <li>🎉 Fiestas y celebraciones privadas</li>
+                                        <li>✨ Lanzamientos</li>
+                                        <li>🏢 Eventos corporativos</li>
+                                        <li>👗 Eventos de moda</li>
+                                        <li>🥂 Inauguraciones</li>
+                                        <li>🎭 Eventos culturales</li>
+                                    </ul>
+                                    <p>La obra puede crearse especialmente para la ocasión, tomando como inspiración <strong>la historia del evento, las personas, el lugar o la identidad visual de una marca</strong>.</p>
+                                    <p>Cada propuesta se diseña de manera personalizada para que el resultado sea mucho más que una actividad durante el evento: <strong>una obra de arte nacida de ese momento.</strong></p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino y alrededores</li>
+                                        <li>📩 Contame qué estás celebrando y diseñamos una propuesta para tu evento.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+                <!-- ============ TALLERES ============ -->
+                                <!-- ============ TALLERES ============ -->
+                <div class="servicio" id="talleres">
+                    <div class="servicio__cabecera">
+                        <h3 class="servicio__titulo" data-i18n="serv_talleres_titulo">Talleres</h3>
+                        <p class="servicio__descripcion" data-i18n="serv_talleres_desc">
+                            Espacios de aprendizaje creativo para distintas edades y niveles.
+                        </p>
+                    </div>
+                    <div class="servicio__grid">
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tal-workshop" data-count="9"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tal1_titulo">Workshop individual / grupal</h4>
+                                <div class="subservicio__texto" data-i18n="tal1_texto">
+                                    <p class="subservicio__subtitulo">🎨 WORKSHOP DE ARTE — TORINO</p>
+                                    <p>Una tarde para desconectar, experimentar y crear algo con tus propias manos.</p>
+                                    <p>No necesitás experiencia.</p>
+                                    <p>Incluye:</p>
+                                    <ul class="subservicio__lista">
+                                        <li>✏️ Materiales</li>
+                                        <li>🎨 Guía del artista</li>
+                                        <li>🖼️ Tu propia creación para llevarte a casa</li>
+                                    </ul>
+                                    <p><strong>Desde 40 € por persona</strong></p>
+                                    <p>Ideal para grupos de amigos, cumpleaños, despedidas y eventos privados.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>📍 Torino</li>
+                                        <li>📩 Reservas por DM.</li>
+                                    </ul>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tal-ninos" data-count="8"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tal2_titulo">Taller para niños</h4>
+                                <div class="subservicio__texto" data-i18n="tal2_texto">
+                                    <p class="subservicio__subtitulo">TALLERES DE ARTE PARA NIÑOS</p>
+                                    <p>Crear, imaginar y experimentar sin miedo a equivocarse.</p>
+                                    <p>Un espacio pensado para que los más pequeños puedan acercarse al arte de una manera libre y divertida, explorando diferentes materiales, técnicas y formas de expresión.</p>
+                                    <p>A través del dibujo, la pintura y distintas actividades creativas, cada niño puede experimentar con sus propias ideas y descubrir que no existe una única manera de crear.</p>
+                                    <p>Más que aprender una técnica, se trata de despertar la curiosidad, estimular la imaginación y disfrutar del proceso creativo.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🎨 Actividades adaptadas a cada edad</li>
+                                        <li>🖌️ Dibujo, pintura y experimentación</li>
+                                        <li>✨ Creatividad e imaginación</li>
+                                        <li>👧 Experiencia artística y participativa</li>
+                                    </ul>
+                                    <p><strong>Un espacio para crear, jugar y descubrir el propio lenguaje artístico.</strong></p>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                        <article class="subservicio">
+                            <div class="carousel" data-folder="tal-adultos" data-count="4"></div>
+                            <div class="subservicio__info">
+                                <h4 class="subservicio__nombre" data-i18n="tal3_titulo">Taller para adultos</h4>
+                                <div class="subservicio__texto" data-i18n="tal3_texto">
+                                    <p class="subservicio__subtitulo">TALLERES DE ARTE PARA ADULTOS</p>
+                                    <p>Un espacio para desconectar, experimentar y volver a crear.</p>
+                                    <p>No hace falta ser artista ni tener experiencia previa. Cada taller propone una experiencia práctica en la que explorar diferentes materiales, técnicas y formas de expresión.</p>
+                                    <p>La idea no es buscar un resultado perfecto, sino disfrutar del proceso, experimentar y encontrar una manera propia de transformar una idea en algo real.</p>
+                                    <p>Porque crear también puede ser una forma de expresarse, descubrir nuevas posibilidades y simplemente disfrutar del momento.</p>
+                                    <ul class="subservicio__lista">
+                                        <li>🎨 Técnicas y materiales artísticos</li>
+                                        <li>🖌️ Experiencia práctica</li>
+                                        <li>✨ No se requiere experiencia previa</li>
+                                        <li>👥 Talleres individuales o grupales</li>
+                                    </ul>
+                                    <p><strong>Venir a aprender una técnica es solo el comienzo. Lo importante es descubrir qué podés crear con ella.</strong></p>
+                                </div>
+                                <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+                     <!-- ============================
+             CONTACTO
+             ============================ -->
+        <section class="contacto" id="contacto">
+            <div class="contacto__contenedor">
+
+                <h2 class="contacto__titulo" data-i18n="contacto_titulo">Contacto</h2>
+                <p class="contacto__intro" data-i18n="contacto_intro">
+                    Contame tu idea y armamos el proyecto juntas.
+                </p>
+
+                <div class="contacto__grid">
+
+                    <!-- COLUMNA IZQUIERDA: DATOS -->
+                    <div class="contacto__datos">
+
+                        <a href="https://wa.me/393520461199?text=Hola%20Michelle%2C%20te%20escribo%20desde%20tu%20web%20%F0%9F%91%8B"
+                           target="_blank" rel="noopener"
+                           class="contacto__boton contacto__boton--whatsapp">
+                            <span class="contacto__icono">📱</span>
+                            <span data-i18n="contacto_whatsapp">Escribime por WhatsApp</span>
+                        </a>
+
+                        <a href="https://instagram.com/Michelle.tttink"
+                           target="_blank" rel="noopener"
+                           class="contacto__boton contacto__boton--instagram">
+                            <span class="contacto__icono">📷</span>
+                            <span data-i18n="contacto_instagram">Seguime en Instagram</span>
+                        </a>
+
+                        <a href="mailto:melonmicaela7@gmail.com"
+                           class="contacto__boton contacto__boton--mail">
+                            <span class="contacto__icono">✉️</span>
+                            <span>melonmicaela7@gmail.com</span>
+                        </a>
+
+                        <div class="contacto__info">
+                            <p class="contacto__info-titulo" data-i18n="contacto_ubicacion">Ubicación</p>
+                            <p class="contacto__info-texto">📍 Torino, Italia</p>
+                        </div>
+
+                        <div class="contacto__info">
+                            <p class="contacto__info-titulo" data-i18n="contacto_horario">Horarios</p>
+                            <p class="contacto__info-texto" data-i18n="contacto_horario_texto">Lunes a viernes · 07:00 a 19:00</p>
+                        </div>
+
+                    </div>
+
+                    <!-- COLUMNA DERECHA: FORMULARIO -->
+                    <form class="contacto__form" id="formContacto">
+
+                        <h3 class="contacto__form-titulo" data-i18n="form_titulo">Pedí tu consulta</h3>
+
+                         <div class="campo">
+                            <label for="nombre" data-i18n="form_nombre">Nombre y Apellido</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                                   <div class="campo">
+                            <label for="servicio" data-i18n="form_servicio">Servicio</label>
+                                                        <select id="servicio" name="servicio" required>
+                                <option value="" data-i18n="form_servicio_default">Elegí un servicio</option>
+                                <optgroup label="Tatuajes">
+                                    <option value="Oferta de tatuajes pequeños" data-i18n="opt_tat_pequenos">Oferta de tatuajes pequeños</option>
+                                    <option value="Tatuaje personalizado" data-i18n="opt_tat_personalizado">Tatuaje personalizado</option>
+                                    <option value="Tatuajes medianos / grandes" data-i18n="opt_tat_medianos">Tatuajes medianos / grandes</option>
+                                    <option value="Proyectos & Covers" data-i18n="opt_tat_proyectos">Proyectos &amp; Covers</option>
+                                </optgroup>
+                                <optgroup label="Obras">
+                                    <option value="Obras personalizadas" data-i18n="opt_obr_personalizadas">Obras personalizadas</option>
+                                    <option value="Obras disponibles" data-i18n="opt_obr_disponibles">Obras disponibles</option>
+                                    <option value="Arte textil" data-i18n="opt_obr_textil">Arte textil</option>
+                                </optgroup>
+                                <optgroup label="Murales">
+                                    <option value="Mural pequeño" data-i18n="opt_mur_pequeno">Mural pequeño</option>
+                                    <option value="Mural mediano" data-i18n="opt_mur_mediano">Mural mediano</option>
+                                    <option value="Mural grande" data-i18n="opt_mur_grande">Mural grande</option>
+                                </optgroup>
+                                <optgroup label="Eventos">
+                                    <option value="Casamiento - Live Painting" data-i18n="opt_eve_live">Casamiento - Live Painting</option>
+                                    <option value="Casamiento - Wedding Tattoo" data-i18n="opt_eve_tattoo">Casamiento - Wedding Tattoo</option>
+                                    <option value="Evento privado" data-i18n="opt_eve_privado">Evento privado</option>
+                                </optgroup>
+                                <optgroup label="Talleres">
+                                    <option value="Workshop individual / grupal" data-i18n="opt_tal_workshop">Workshop individual / grupal</option>
+                                    <option value="Taller para niños" data-i18n="opt_tal_ninos">Taller para niños</option>
+                                    <option value="Taller para adultos" data-i18n="opt_tal_adultos">Taller para adultos</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="fecha" data-i18n="form_fecha">Fecha preferida</label>
+                            <input type="date" id="fecha" name="fecha">
+                        </div>
+
+                        <div class="campo">
+                            <label for="idea" data-i18n="form_idea">Contame tu idea</label>
+                            <textarea id="idea" name="idea" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="contacto__enviar" data-i18n="form_enviar">
+                            Enviar por WhatsApp
+                        </button>
+
+                        <p class="contacto__form-nota" data-i18n="form_nota">
+                            Al enviar, se abrirá WhatsApp con tu consulta ya escrita.
+                        </p>
+
+                    </form>
+
+                </div>
+            </div>
+        </section>
+                     
+                   
+    </main>
+
+           <footer class="footer">
+        <div class="footer__contenedor">
+
+            <div class="footer__columna">
+                <h3 class="footer__logo">
+    <img src="assets/img/logo.jpg" alt="Michelle">
+</h3>
+                <p class="footer__descripcion" data-i18n="footer_descripcion">
+                    Artista visual y tatuadora. Creo desde Torino, Italia, para todo el mundo.
+                </p>
+                <div class="footer__idiomas">
+                    <div class="idiomas" id="idiomasFooter">
+                        <button class="idiomas__toggle" aria-label="Cambiar idioma">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Idioma actual">
+                            <span class="idiomas__flecha">▾</span>
+                        </button>
+                        <div class="idiomas__menu">
+                            <button class="idiomas__opcion idiomas__opcion--activo" data-idioma="es">
+                                <img src="https://flagcdn.com/w40/es.png" alt="Español">
+                                <span>Español</span>
+                            </button>
+                            <button class="idiomas__opcion" data-idioma="it">
+                                <img src="https://flagcdn.com/w40/it.png" alt="Italiano">
+                                <span>Italiano</span>
+                            </button>
+                            <button class="idiomas__opcion" data-idioma="en">
+                                <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                                <span>English</span>
+                            </button>
+                            <button class="idiomas__opcion" data-idioma="pt">
+                                <img src="https://flagcdn.com/w40/pt.png" alt="Português">
+                                <span>Português</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__columna">
+                <h4 class="footer__titulo" data-i18n="footer_menu">Menú</h4>
+                <ul class="footer__lista">
+                    <li><a href="#inicio" data-i18n="menu_inicio">Inicio</a></li>
+                    <li><a href="#sobre" data-i18n="menu_biografia">Biografía</a></li>
+                    <li><a href="#tatuajes" data-i18n="menu_tatuajes">Tatuajes</a></li>
+                    <li><a href="#cuadros" data-i18n="menu_cuadros">Obras</a></li>
+                    <li><a href="#murales" data-i18n="menu_murales">Murales</a></li>
+                    <li><a href="#eventos" data-i18n="menu_eventos">Eventos</a></li>
+                    <li><a href="#talleres" data-i18n="menu_talleres">Talleres</a></li>
+                    <li><a href="#contacto" data-i18n="menu_contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__columna">
+                <h4 class="footer__titulo" data-i18n="footer_contacto">Contacto</h4>
+                <ul class="footer__lista">
+                    <li>
+                        <a href="https://wa.me/393520461199?text=Hola%20Michelle%2C%20te%20escribo%20desde%20tu%20web%20%F0%9F%91%8B"
+                           target="_blank" rel="noopener">
+                            📱 WhatsApp
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/Michelle.tttink"
+                           target="_blank" rel="noopener">
+                            📷 @Michelle.tttink
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:melonmicaela7@gmail.com">
+                            ✉️ melonmicaela7@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <span>📍 Torino, Italia</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer__bottom">
+            <p>&copy; 2026 Michelle.tttink . <span data-i18n="footer_derechos">Todos los derechos reservados.</span></p>
+        </div>
+    </footer>
+    <!-- ============================
+         MODAL DE SUB-SERVICIOS
+         ============================ -->
+    <div class="modal" id="modalServicio">
+        <div class="modal__contenido">
+            <button class="modal__cerrar" id="modalCerrar" aria-label="Cerrar">×</button>
+            <div class="modal__carousel" id="modalCarousel"></div>
+            <div class="modal__info" id="modalInfo"></div>
+        </div>
+    </div>
+            <!-- ============================
+         MODAL DEL CATÁLOGO
+         ============================ -->
+    <div class="modal-catalogo" id="modalCatalogo">
+        <div class="modal-catalogo__contenido">
+            <button class="modal-catalogo__cerrar" id="modalCatalogoCerrar" aria-label="Cerrar">×</button>
+
+            <!-- ============ VISTA GRILLA ============ -->
+            <div class="catalogo-vista" id="catalogoVistaGrilla">
+
+                <h2 class="modal-catalogo__titulo" data-i18n="catalogo_titulo">Catálogo de obras</h2>
+                <p class="modal-catalogo__intro" data-i18n="catalogo_intro">
+                    Una selección de obras originales disponibles.
+                </p>
+
+                <div class="modal-catalogo__tabs" id="catalogoTabs"></div>
+
+                <div class="modal-catalogo__grid" id="catalogoGrid"></div>
+            </div>
+
+            <!-- ============ VISTA PRODUCTO ============ -->
+            <div class="catalogo-vista catalogo-vista--oculta" id="catalogoVistaProducto">
+
+                <button class="catalogo-volver" id="catalogoVolver">
+                    ← <span data-i18n="volver_catalogo">Volver al catálogo</span>
+                </button>
+
+                <div class="producto-detalle">
+                    <div class="producto-detalle__imagenes">
+                        <div class="producto-detalle__imagen-principal">
+                            <img id="productoImagenPrincipal" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="producto-detalle__info">
+                        <h3 class="producto-detalle__nombre" id="productoNombre">—</h3>
+                        <p class="producto-detalle__tecnica" id="productoTecnica">—</p>
+                        <p class="producto-detalle__medidas" id="productoMedidas">—</p>
+
+                        <a href="#" target="_blank" rel="noopener" class="producto-detalle__boton" id="productoWhatsapp">    
+                        <span data-i18n="consultar_whatsapp">Consultar por WhatsApp</span>
+                        </a>
+
+                        <div class="producto-detalle__info-extra">
+                            <p data-i18n="producto_info_1">✨ Obra original hecha a mano</p>
+                            <p data-i18n="producto_info_2">📍 Torino, Italia</p>
+                            <p data-i18n="producto_info_3">📩 Escribime para coordinar la compra o pedir más fotos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

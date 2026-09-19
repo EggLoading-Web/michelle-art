@@ -1,0 +1,58 @@
+{
+  "categorias": [
+    {
+      "id": "cuadros",
+      "titulo": {
+        "es": "Cuadros",
+        "it": "Dipinti",
+        "en": "Paintings",
+        "pt": "Quadros"
+      },
+      "obras": [
+        {
+  "id": "cua-1",
+  "nombre": {
+    "es": "Obra de prueba",
+    "it": "Opera di prova",
+    "en": "Test work",
+    "pt": "Obra de teste"
+  },
+  "tecnica": {
+    "es": "Acrílico sobre tela",
+    "it": "Acrilico su tela",
+    "en": "Acrylic on canvas",
+    "pt": "Acrílico sobre tela"
+  },
+  "medidas": "50 × 70 cm",
+  "foto": "assets/img/catalogo/cuadros/1.jpg"
+},
+        { "id": "cua-2", "placeholder": true },
+        { "id": "cua-3", "placeholder": true },
+        { "id": "cua-4", "placeholder": true },
+        { "id": "cua-5", "placeholder": true },
+        { "id": "cua-6", "placeholder": true },
+        { "id": "cua-7", "placeholder": true },
+        { "id": "cua-8", "placeholder": true }
+      ]
+    },
+    {
+      "id": "arte-para-llevar",
+      "titulo": {
+        "es": "Arte para llevar",
+        "it": "Arte da portare",
+        "en": "Art to take with you",
+        "pt": "Arte para levar"
+      },
+      "obras": [
+        { "id": "apl-1", "placeholder": true },
+        { "id": "apl-2", "placeholder": true },
+        { "id": "apl-3", "placeholder": true },
+        { "id": "apl-4", "placeholder": true },
+        { "id": "apl-5", "placeholder": true },
+        { "id": "apl-6", "placeholder": true },
+        { "id": "apl-7", "placeholder": true },
+        { "id": "apl-8", "placeholder": true }
+      ]
+    }
+  ]
+}
