@@ -1,22 +1,33 @@
 // ============================
+// VARIABLES GLOBALES
+// ============================
+let catalogoData = null;
+let categoriaActiva = null;
+let modalInterval = null;
+
+// ============================
 // MENÚ HAMBURGUESA
 // ============================
 const btnHamburguesa = document.getElementById('btnHamburguesa');
 const menuPrincipal = document.getElementById('menuPrincipal');
 
-btnHamburguesa.addEventListener('click', () => {
-    btnHamburguesa.classList.toggle('activo');
-    menuPrincipal.classList.toggle('abierto');
-});
+if (btnHamburguesa && menuPrincipal) {
+    btnHamburguesa.addEventListener('click', () => {
+        btnHamburguesa.classList.toggle('activo');
+        menuPrincipal.classList.toggle('abierto');
+    });
+}
 
-// Cerrar el menú al hacer clic en un enlace (en móvil)
-const enlacesMenu = document.querySelectorAll('.nav__link');
+// Cerrar el menú al hacer clic en un enlace (sin incluir el dropdown)
+const enlacesMenu = document.querySelectorAll('.nav__link:not(.nav__link--dropdown)');
 enlacesMenu.forEach(enlace => {
     enlace.addEventListener('click', () => {
-        btnHamburguesa.classList.remove('activo');
-        menuPrincipal.classList.remove('abierto');
+        if (btnHamburguesa) btnHamburguesa.classList.remove('activo');
+        if (menuPrincipal) menuPrincipal.classList.remove('abierto');
     });
-});// ============================
+});
+
+// ============================
 // MODAL DE SUB-SERVICIOS
 // ============================
 const modal = document.getElementById('modalServicio');
@@ -33,7 +44,6 @@ document.querySelectorAll('.subservicio').forEach(card => {
     btn.dataset.i18n = 'ver_mas';
     btn.textContent = 'Ver más';
 
-    // Si la tarjeta es de catálogo, el botón abre el catálogo
     if (card.dataset.catalogo === 'true') {
         btn.dataset.i18n = 'ver_catalogo';
         btn.textContent = 'Ver catálogo';
@@ -42,7 +52,6 @@ document.querySelectorAll('.subservicio').forEach(card => {
             abrirCatalogo();
         });
     } else {
-        // Comportamiento normal: abre el modal
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             abrirModal(card);
@@ -56,7 +65,6 @@ function abrirModal(card) {
     modalCarousel.innerHTML = '';
     modalInfo.innerHTML = '';
 
-    // Copiar carrusel
     const carousel = card.querySelector('.carousel');
     if (carousel) {
         const imgs = carousel.querySelectorAll('img');
@@ -76,22 +84,19 @@ function abrirModal(card) {
         }
     }
 
-        const infoOriginal = card.querySelector('.subservicio__info');
+    const infoOriginal = card.querySelector('.subservicio__info');
     if (infoOriginal) {
         const clon = infoOriginal.cloneNode(true);
 
-        // Quitar el botón "Ver más" del clon
         const btnVerMas = clon.querySelector('.subservicio__vermas');
         if (btnVerMas) btnVerMas.remove();
 
-        // Reemplazar el <a> "Consultar" por un <button>
         const linkClonado = clon.querySelector('.subservicio__link');
         if (linkClonado) {
             const btn = document.createElement('button');
             btn.className = 'subservicio__link subservicio__link--modal';
             btn.type = 'button';
             btn.textContent = linkClonado.textContent;
-            // Heredar el data-i18n para que se traduzca
             if (linkClonado.dataset.i18n) {
                 btn.dataset.i18n = linkClonado.dataset.i18n;
             }
@@ -101,21 +106,17 @@ function abrirModal(card) {
         modalInfo.appendChild(clon);
     }
 
-    // Mostrar modal
     modal.classList.add('abierto');
     document.body.style.overflow = 'hidden';
 
-    // Iniciar rotación del carrusel del modal
     iniciarRotacionModal();
 
-    // Reaplicar el idioma actual para que el clon se traduzca
     const idiomaActual = localStorage.getItem('idioma') || 'es';
     aplicarIdioma(idiomaActual);
-        // Agregar flechas al carrusel del modal
+
     crearFlechas(modalCarousel);
 }
 
-let modalInterval;
 function iniciarRotacionModal() {
     clearInterval(modalInterval);
     modalInterval = setInterval(() => {
@@ -135,19 +136,20 @@ function cerrarModal() {
 }
 
 function refrescarModal() {
-    // Función vacía para evitar errores si se llama desde aplicarIdioma 
-    // Si el modal está abierto y hay un idioma nuevo, no hace falta hacer nada
-    // porque aplicarIdioma ya actualiza todos los data-i18n visibles.
-    // Esta función existe solo para que no dé error si se llama desde otro lado.
+    // Función vacía por compatibilidad
 }
 
-modalCerrar.addEventListener('click', cerrarModal);
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) cerrarModal();
-});
+if (modalCerrar) modalCerrar.addEventListener('click', cerrarModal);
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) cerrarModal();
+    });
+}
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') cerrarModal();
-});// ============================
+});
+
+// ============================
 // FORMULARIO DE CONTACTO → WHATSAPP
 // ============================
 const formContacto = document.getElementById('formContacto');
@@ -156,17 +158,23 @@ if (formContacto) {
     formContacto.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const nombre = document.getElementById('nombre').value.trim();
-        const servicio = document.getElementById('servicio').value;
-        const fecha = document.getElementById('fecha').value;
-        const idea = document.getElementById('idea').value.trim();
+        const inputNombre = document.getElementById('nombre');
+        const inputServicio = document.getElementById('servicio');
+        const inputFecha = document.getElementById('fecha');
+        const inputIdea = document.getElementById('idea');
+
+        if (!inputNombre || !inputServicio || !inputIdea) return;
+
+        const nombre = inputNombre.value.trim();
+        const servicio = inputServicio.value;
+        const fecha = inputFecha ? inputFecha.value : '';
+        const idea = inputIdea.value.trim();
 
         if (!nombre || !servicio || !idea) {
             alert('Por favor completá todos los campos obligatorios.');
             return;
         }
 
-        // Construir el mensaje
         let mensaje = `Hola Michelle! 👋🤍\n\n`;
         mensaje += `Nombre y Apellido: ${nombre}\n`;
         mensaje += `Servicio: ${servicio}\n`;
@@ -176,17 +184,14 @@ if (formContacto) {
         mensaje += `\nIdea:\n${idea}\n\n`;
         mensaje += `Enviado desde tu web 🎨`;
 
-        // Codificar para URL
         const mensajeCodificado = encodeURIComponent(mensaje);
-
-        // Número de Michelle (sin +, sin espacios)
         const numero = '393520461199';
-
-        // Abrir WhatsApp
         const url = `https://wa.me/${numero}?text=${mensajeCodificado}`;
         window.open(url, '_blank');
     });
-}// ============================
+}
+
+// ============================
 // SISTEMA DE IDIOMAS
 // ============================
 const idiomaGuardado = localStorage.getItem('idioma') || 'es';
@@ -197,7 +202,6 @@ async function aplicarIdioma(idioma) {
         if (!respuesta.ok) throw new Error(`No se pudo cargar el idioma ${idioma}`);
         const traducciones = await respuesta.json();
 
-        // Reemplazar todos los textos marcados con data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const clave = el.dataset.i18n;
             if (traducciones[clave]) {
@@ -210,9 +214,9 @@ async function aplicarIdioma(idioma) {
             }
         });
 
-        // Cambiar la bandera del botón en header y footer
+        // ⭐ BANDERA ARGENTINA para español
         const banderas = {
-            es: 'https://flagcdn.com/w40/es.png',
+            es: 'https://flagcdn.com/w40/ar.png',
             it: 'https://flagcdn.com/w40/it.png',
             en: 'https://flagcdn.com/w40/gb.png',
             pt: 'https://flagcdn.com/w40/pt.png'
@@ -221,7 +225,6 @@ async function aplicarIdioma(idioma) {
             img.src = banderas[idioma];
         });
 
-        // Marcar la opción activa en todos los menús
         document.querySelectorAll('.idiomas__opcion').forEach(op => {
             op.classList.toggle('idiomas__opcion--activo', op.dataset.idioma === idioma);
         });
@@ -231,7 +234,6 @@ async function aplicarIdioma(idioma) {
 
         if (typeof refrescarModal === 'function') refrescarModal();
 
-           // Actualizar catálogo si está abierto
         if (catalogoData) {
             renderizarTabs();
             renderizarObras();
@@ -245,8 +247,6 @@ async function aplicarIdioma(idioma) {
 // ============================
 // SELECTOR DE IDIOMA (DESPLEGABLE)
 // ============================
-
-// Abrir/cerrar menú
 document.querySelectorAll('.idiomas__toggle').forEach(toggle => {
     toggle.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -268,12 +268,9 @@ document.querySelectorAll('.idiomas__opcion').forEach(opcion => {
 document.addEventListener('click', () => {
     document.querySelectorAll('.idiomas').forEach(m => m.classList.remove('abierto'));
 });
-function refrescarModal() {
-    // Función vacía para evitar errores si se llama desde aplicarIdioma
-}
 
-// Aplicar el idioma guardado al cargar la página
 aplicarIdioma(idiomaGuardado);
+
 // ============================
 // CARRUSELES AUTOMÁTICOS
 // ============================
@@ -283,7 +280,6 @@ document.querySelectorAll('.carousel').forEach(carousel => {
 
     if (!folder) return;
 
-    // Crear las imágenes dinámicamente
     for (let i = 1; i <= count; i++) {
         const img = document.createElement('img');
         img.src = `assets/img/${folder}/${i}.jpg`;
@@ -291,14 +287,12 @@ document.querySelectorAll('.carousel').forEach(carousel => {
 
         img.onerror = () => {
             img.remove();
-            // Si no quedó ninguna imagen, mostrar placeholder
             if (carousel.querySelectorAll('img').length === 0) {
                 carousel.classList.add('carousel--vacio');
             }
         };
 
         img.onload = () => {
-            // La primera imagen que cargue se muestra
             if (!carousel.querySelector('img.activo')) {
                 img.classList.add('activo');
             }
@@ -307,20 +301,18 @@ document.querySelectorAll('.carousel').forEach(carousel => {
         carousel.appendChild(img);
     }
 
-    // Rotación automática cada 5 segundos
     setInterval(() => {
         const imgs = carousel.querySelectorAll('img');
         if (imgs.length < 2) return;
-
         const actual = [...imgs].findIndex(i => i.classList.contains('activo'));
         if (actual === -1) return;
-
         imgs[actual].classList.remove('activo');
         imgs[(actual + 1) % imgs.length].classList.add('activo');
     }, 2300);
-        // Agregar flechas de navegación
+
     crearFlechas(carousel);
 });
+
 // ============================
 // CATÁLOGO DE OBRAS
 // ============================
@@ -328,9 +320,6 @@ const modalCatalogo = document.getElementById('modalCatalogo');
 const modalCatalogoCerrar = document.getElementById('modalCatalogoCerrar');
 const catalogoTabs = document.getElementById('catalogoTabs');
 const catalogoGrid = document.getElementById('catalogoGrid');
-
-let catalogoData = null;
-let categoriaActiva = null;
 
 async function abrirCatalogo() {
     if (!catalogoData) {
@@ -344,7 +333,7 @@ async function abrirCatalogo() {
             return;
         }
     }
- // Resetear vistas ANTES de abrir
+
     document.getElementById('catalogoVistaGrilla').classList.remove('catalogo-vista--oculta');
     document.getElementById('catalogoVistaProducto').classList.add('catalogo-vista--oculta');
 
@@ -377,7 +366,9 @@ function renderizarTabs() {
 
         catalogoTabs.appendChild(btn);
     });
-}function renderizarObras() {
+}
+
+function renderizarObras() {
     catalogoGrid.innerHTML = '';
     const idioma = localStorage.getItem('idioma') || 'es';
 
@@ -440,34 +431,26 @@ function renderizarTabs() {
     });
 }
 
-// ============================
-// VISTA DE PRODUCTO INDIVIDUAL
-// ============================
 function mostrarProducto(obra) {
     const idioma = localStorage.getItem('idioma') || 'es';
     const nombre = obra.nombre[idioma] || obra.nombre.es;
     const tecnica = obra.tecnica[idioma] || obra.tecnica.es;
 
-    // Actualizar datos
     document.getElementById('productoImagenPrincipal').src = obra.foto;
     document.getElementById('productoImagenPrincipal').alt = nombre;
     document.getElementById('productoNombre').textContent = nombre;
     document.getElementById('productoTecnica').textContent = tecnica;
     document.getElementById('productoMedidas').textContent = obra.medidas;
 
-    // WhatsApp con el nombre de la obra
     const mensaje = `Hola Michelle! 👋🤍\n\nMe interesa la obra: *${nombre}*\n\n¿Está disponible?`;
     const url = `https://wa.me/393520461199?text=${encodeURIComponent(mensaje)}`;
     document.getElementById('productoWhatsapp').href = url;
 
-    // Cambiar vista
     document.getElementById('catalogoVistaGrilla').classList.add('catalogo-vista--oculta');
     document.getElementById('catalogoVistaProducto').classList.remove('catalogo-vista--oculta');
 
-    // Scroll al inicio del modal
     document.querySelector('.modal-catalogo').scrollTop = 0;
 
-        // Si la imagen del producto falla, mostrar "Próximamente"
     const imgProducto = document.getElementById('productoImagenPrincipal');
     const contenedorProducto = imgProducto.parentElement;
     const idiomaActual = localStorage.getItem('idioma') || 'es';
@@ -479,7 +462,6 @@ function mostrarProducto(obra) {
         pt: 'Em breve'
     };
 
-    // Resetear el estado
     contenedorProducto.classList.remove('producto-detalle__imagen-principal--proximamente');
     imgProducto.style.display = 'block';
 
@@ -487,14 +469,12 @@ function mostrarProducto(obra) {
         imgProducto.style.display = 'none';
         contenedorProducto.classList.add('producto-detalle__imagen-principal--proximamente');
         contenedorProducto.innerHTML = `<span>${txtProximamente[idiomaActual] || txtProximamente.es}</span>`;
-        // Re-crear la img para futuros productos
         const nuevaImg = document.createElement('img');
         nuevaImg.id = 'productoImagenPrincipal';
         contenedorProducto.appendChild(nuevaImg);
     };
 }
 
-// Botón "Volver al catálogo"
 document.addEventListener('click', (e) => {
     if (e.target.closest('#catalogoVolver')) {
         document.getElementById('catalogoVistaProducto').classList.add('catalogo-vista--oculta');
@@ -502,12 +482,11 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Cerrar catálogo
 if (modalCatalogoCerrar) {
     modalCatalogoCerrar.addEventListener('click', () => {
         modalCatalogo.classList.remove('abierto');
         document.body.style.overflow = '';
-         document.getElementById('catalogoVistaProducto').classList.add('catalogo-vista--oculta');
+        document.getElementById('catalogoVistaProducto').classList.add('catalogo-vista--oculta');
         document.getElementById('catalogoVistaGrilla').classList.remove('catalogo-vista--oculta');
     });
 }
@@ -528,83 +507,65 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Volver a renderizar el catálogo al cambiar idioma
-// (agregamos un hook al aplicarIdioma existente)
-const _aplicarIdiomaOriginal = window.aplicarIdioma;
 // ============================
 // SUBMENÚ "OBRAS DISPONIBLES"
 // ============================
 (function () {
     const dropdowns = document.querySelectorAll('.nav__link--dropdown');
     const subItems = document.querySelectorAll('.nav__submenu-item');
-    const menuPrincipal = document.getElementById('menuPrincipal');
-    const btnHamburguesa = document.getElementById('btnHamburguesa');
+    const menuPrinc = document.getElementById('menuPrincipal');
+    const btnHamb = document.getElementById('btnHamburguesa');
 
-    document.querySelectorAll('.nav__link--dropdown').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const contenedor = btn.closest('.nav__item-dropdown');
+    dropdowns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const contenedor = btn.closest('.nav__item-dropdown');
 
-        // Scroll suave a la sección "Obras disponibles"
-        const seccion = document.getElementById('obras-disponibles');
-        if (seccion) {
-            seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+            const seccion = document.getElementById('obras-disponibles');
+            if (seccion) {
+                seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
-        // Abrir/cerrar submenú
-        contenedor.classList.toggle('abierto');
+            contenedor.classList.toggle('abierto');
+        });
     });
-});
 
-    // Selección de categoría
     subItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.stopPropagation();
             const categoria = item.dataset.categoria;
 
-            // Cerrar todos los dropdowns
             document.querySelectorAll('.nav__item-dropdown').forEach(d => d.classList.remove('abierto'));
+            if (menuPrinc) menuPrinc.classList.remove('abierto');
+            if (btnHamb) btnHamb.classList.remove('activo');
 
-            // Cerrar menú hamburguesa
-            if (menuPrincipal) menuPrincipal.classList.remove('abierto');
-            if (btnHamburguesa) btnHamburguesa.classList.remove('activo');
-
-            // Abrir catálogo filtrado
-            if (typeof categoriaActiva !== 'undefined') {
-                categoriaActiva = categoria;
-            }
-            if (typeof abrirCatalogo === 'function') {
-                abrirCatalogo();
-            }
+            categoriaActiva = categoria;
+            abrirCatalogo();
         });
     });
 
-    // Cerrar al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav__item-dropdown')) {
             document.querySelectorAll('.nav__item-dropdown').forEach(d => d.classList.remove('abierto'));
         }
     });
-})();// ============================
+})();
+
+// ============================
 // BOTONES DE LA SECCIÓN OBRAS DISPONIBLES
 // ============================
 document.querySelectorAll('.obras-disponibles__btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const categoria = btn.dataset.categoria;
-
-        if (typeof categoriaActiva !== 'undefined') {
-            categoriaActiva = categoria;
-        }
-        if (typeof abrirCatalogo === 'function') {
-            abrirCatalogo();
-        }
+        categoriaActiva = btn.dataset.categoria;
+        abrirCatalogo();
     });
-});// ============================
-// FLECHAS DE NAVEGACIÓN EN CARRUSELES
+});
+
+// ============================
+// FLECHAS DE NAVEGACIÓN
 // ============================
 function crearFlechas(carousel) {
-    // Flecha izquierda
     const prev = document.createElement('button');
     prev.className = 'carousel__flecha carousel__flecha--prev';
     prev.setAttribute('aria-label', 'Anterior');
@@ -614,7 +575,6 @@ function crearFlechas(carousel) {
         navegarCarrusel(carousel, -1);
     });
 
-    // Flecha derecha
     const next = document.createElement('button');
     next.className = 'carousel__flecha carousel__flecha--next';
     next.setAttribute('aria-label', 'Siguiente');
@@ -638,7 +598,9 @@ function navegarCarrusel(carousel, direccion) {
     imgs[actual].classList.remove('activo');
     const siguiente = (actual + direccion + imgs.length) % imgs.length;
     imgs[siguiente].classList.add('activo');
-}// ============================
+}
+
+// ============================
 // CONSULTAR EN EL MODAL → CERRAR + WHATSAPP
 // ============================
 document.addEventListener('click', (e) => {
@@ -648,25 +610,134 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Cerrar el modal
-    const modal = document.getElementById('modalServicio');
-    if (modal) {
-        modal.classList.remove('abierto');
+    const modalServicio = document.getElementById('modalServicio');
+    if (modalServicio) {
+        modalServicio.classList.remove('abierto');
         document.body.style.overflow = '';
-
-        // Detener rotación del carrusel del modal
-        if (typeof modalInterval !== 'undefined') {
-            clearInterval(modalInterval);
-        }
+        if (modalInterval) clearInterval(modalInterval);
     }
 
-    // Obtener el nombre del servicio
     const info = btn.closest('.subservicio__info');
     const titulo = info ? info.querySelector('.subservicio__nombre') : null;
     const nombre = titulo ? titulo.textContent.trim() : '';
 
-    // Abrir WhatsApp
     const mensaje = `Hola Michelle! 👋🤍\n\nMe interesa el servicio: *${nombre}*\n\n¿Me contás más?`;
     const url = `https://wa.me/393520461199?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 });
+
+// ============================
+// ✨ 1. ANIMACIONES AL HACER SCROLL
+// ============================
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(
+    '.sobre__texto, .sobre__imagen, .etapa, .servicio, .obras-disponibles__card, .contacto__grid, .footer__columna, .historia__titulo, .faq__item'
+).forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+});
+
+// ============================
+// ✨ 2. BOTÓN VOLVER ARRIBA
+// ============================
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ============================
+// ✨ 3. LIGHTBOX
+// ============================
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+function abrirLightbox(src, alt) {
+    if (!lightbox || !src) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('abierto');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('abierto');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('click', (e) => {
+    const img = e.target.closest('.modal__carousel img.activo, .obra-catalogo__imagen img, .producto-detalle__imagen-principal img');
+    if (img && img.src && !img.src.endsWith('undefined')) {
+        abrirLightbox(img.src, img.alt);
+    }
+});
+
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox__cerrar')) {
+            cerrarLightbox();
+        }
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') cerrarLightbox();
+    });
+}
+
+// ============================
+// ✨ 4. WHATSAPP DINÁMICO POR SECCIÓN
+// ============================
+const seccionesWhatsapp = [
+    { id: 'tatuajes', clave: 'tatuajes' },
+    { id: 'cuadros', clave: 'obras' },
+    { id: 'murales', clave: 'murales' },
+    { id: 'eventos', clave: 'eventos' },
+    { id: 'talleres', clave: 'talleres' },
+    { id: 'contacto', clave: 'consulta general' }
+];
+
+const whatsappBtn = document.querySelector('.whatsapp-flotante');
+const whatsappTexto = document.querySelector('.whatsapp-flotante__texto');
+let seccionActual = null;
+
+if (whatsappBtn && 'IntersectionObserver' in window) {
+    const observadorSecciones = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const seccion = seccionesWhatsapp.find(s => s.id === entry.target.id);
+                if (seccion && seccion.id !== seccionActual) {
+                    seccionActual = seccion.id;
+                    const idioma = localStorage.getItem('idioma') || 'es';
+                    const etiquetas = {
+                        es: { tatuajes: 'Tatuajes', obras: 'Obras', murales: 'Murales', eventos: 'Eventos', talleres: 'Talleres', 'consulta general': 'Consulta' },
+                        it: { tatuajes: 'Tatuaggi', obras: 'Opere', murales: 'Murales', eventos: 'Eventi', talleres: 'Laboratori', 'consulta general': 'Consulenza' },
+                        en: { tatuajes: 'Tattoos', obras: 'Works', murales: 'Murals', eventos: 'Events', talleres: 'Workshops', 'consulta general': 'Inquiry' },
+                        pt: { tatuajes: 'Tatuagens', obras: 'Obras', murales: 'Murais', eventos: 'Eventos', talleres: 'Oficinas', 'consulta general': 'Consulta' }
+                    };
+                    const dict = etiquetas[idioma] || etiquetas.es;
+                    const nuevoTexto = dict[seccion.clave] || dict['consulta general'];
+                    if (whatsappTexto) whatsappTexto.textContent = nuevoTexto;
+                    const msg = `Hola Michelle! 👋🤍\n\nMe interesa el servicio de: *${nuevoTexto}*\n\n¿Me contás más?`;
+                    whatsappBtn.href = `https://wa.me/393520461199?text=${encodeURIComponent(msg)}`;
+                }
+            }
+        });
+    }, { threshold: 0.4 });
+
+    seccionesWhatsapp.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) observadorSecciones.observe(el);
+    });
+}

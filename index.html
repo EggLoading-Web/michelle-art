@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michelle - Tatuajes, Cuadros, Murales y Talleres</title>
+    <title>Michelle - Tatuajes, Obras, Murales y Talleres</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+    <link rel="apple-touch-icon" href="assets/img/logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
@@ -11,88 +13,95 @@
 </head>
 <body>
 
+    <!-- ============================
+         HEADER
+         ============================ -->
     <header class="header">
-    <div class="header__contenedor">
+        <div class="header__contenedor">
 
-        <a href="#inicio" class="header__logo">
-            <img src="assets/img/logo.jpg" alt="Michelle">
-        </a>
+            <a href="#inicio" class="header__logo">
+                <img src="assets/img/logo.jpg" alt="Michelle">
+            </a>
 
-        <div class="idiomas" id="idiomasHeader">
-            <button class="idiomas__toggle" aria-label="Cambiar idioma">
-                <img src="https://flagcdn.com/w40/es.png" alt="Idioma actual">
-                <span class="idiomas__flecha">▾</span>
-            </button>
-            <div class="idiomas__menu">
-                <button class="idiomas__opcion idiomas__opcion--activo" data-idioma="es">
-                    <img src="https://flagcdn.com/w40/es.png" alt="Español">
-                    <span>Español</span>
+            <div class="idiomas" id="idiomasHeader">
+                <button class="idiomas__toggle" aria-label="Cambiar idioma">
+                    <img src="https://flagcdn.com/w40/ar.png" alt="Idioma actual">
+                    <span class="idiomas__flecha">▾</span>
                 </button>
-                <button class="idiomas__opcion" data-idioma="it">
-                    <img src="https://flagcdn.com/w40/it.png" alt="Italiano">
-                    <span>Italiano</span>
-                </button>
-                <button class="idiomas__opcion" data-idioma="en">
-                    <img src="https://flagcdn.com/w40/gb.png" alt="English">
-                    <span>English</span>
-                </button>
-                <button class="idiomas__opcion" data-idioma="pt">
-                    <img src="https://flagcdn.com/w40/pt.png" alt="Português">
-                    <span>Português</span>
-                </button>
-            </div>
-        </div>
-
-        <button class="header__hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="nav" id="menuPrincipal">
-            <ul class="nav__lista">
-                <li><a href="#inicio" class="nav__link" data-i18n="menu_inicio">Inicio</a></li>
-                <li><a href="#sobre" class="nav__link" data-i18n="menu_biografia">Biografía</a></li>
-                <li><a href="#tatuajes" class="nav__link" data-i18n="menu_tatuajes">Tatuajes</a></li>
-                <li><a href="#cuadros" class="nav__link" data-i18n="menu_cuadros">Obras</a></li>
-                <li class="nav__item-dropdown">
-                    <button class="nav__link nav__link--dropdown" type="button">
-                        <span data-i18n="menu_obras_disponibles">Obras disponibles</span>
-                        <span class="nav__flecha">▾</span>
+                <div class="idiomas__menu">
+                    <button class="idiomas__opcion idiomas__opcion--activo" data-idioma="es">
+                        <img src="https://flagcdn.com/w40/ar.png" alt="Español">
+                        <span>Español</span>
                     </button>
-                    <ul class="nav__submenu">
-                        <li><button class="nav__submenu-item" data-categoria="cuadros" data-i18n="cat_cuadros">Cuadros</button></li>
-                        <li><button class="nav__submenu-item" data-categoria="arte-para-llevar" data-i18n="cat_arte_llevar">Arte para llevar</button></li>
-                    </ul>
-                </li>
-                <li><a href="#murales" class="nav__link" data-i18n="menu_murales">Murales</a></li>
-                <li><a href="#eventos" class="nav__link" data-i18n="menu_eventos">Eventos</a></li>
-                <li><a href="#talleres" class="nav__link" data-i18n="menu_talleres">Talleres</a></li>
-                <li><a href="#contacto" class="nav__link" data-i18n="menu_contacto">Contacto</a></li>
-            </ul>
-        </nav>
+                    <button class="idiomas__opcion" data-idioma="it">
+                        <img src="https://flagcdn.com/w40/it.png" alt="Italiano">
+                        <span>Italiano</span>
+                    </button>
+                    <button class="idiomas__opcion" data-idioma="en">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        <span>English</span>
+                    </button>
+                    <button class="idiomas__opcion" data-idioma="pt">
+                        <img src="https://flagcdn.com/w40/pt.png" alt="Português">
+                        <span>Português</span>
+                    </button>
+                </div>
+            </div>
 
-    </div>
-</header>
+            <button class="header__hamburguesa" id="btnHamburguesa" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-       <main>
+            <nav class="nav" id="menuPrincipal">
+                <ul class="nav__lista">
+                    <li><a href="#inicio" class="nav__link" data-i18n="menu_inicio">Inicio</a></li>
+                    <li><a href="#sobre" class="nav__link" data-i18n="menu_biografia">Biografía</a></li>
+                    <li><a href="#tatuajes" class="nav__link" data-i18n="menu_tatuajes">Tatuajes</a></li>
+                    <li><a href="#cuadros" class="nav__link" data-i18n="menu_cuadros">Obras</a></li>
+                    <li class="nav__item-dropdown">
+                        <button class="nav__link nav__link--dropdown" type="button">
+                            <span data-i18n="menu_obras_disponibles">Obras disponibles</span>
+                            <span class="nav__flecha">▾</span>
+                        </button>
+                        <ul class="nav__submenu">
+                            <li><button class="nav__submenu-item" data-categoria="cuadros" data-i18n="cat_cuadros">Cuadros</button></li>
+                            <li><button class="nav__submenu-item" data-categoria="arte-para-llevar" data-i18n="cat_arte_llevar">Arte para llevar</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="#murales" class="nav__link" data-i18n="menu_murales">Murales</a></li>
+                    <li><a href="#eventos" class="nav__link" data-i18n="menu_eventos">Eventos</a></li>
+                    <li><a href="#talleres" class="nav__link" data-i18n="menu_talleres">Talleres</a></li>
+                    <li><a href="#contacto" class="nav__link" data-i18n="menu_contacto">Contacto</a></li>
+                </ul>
+            </nav>
 
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============================
+             HERO
+             ============================ -->
         <section class="hero" id="inicio">
             <div class="hero__contenido">
                 <h1 class="hero__titulo" data-i18n="hero_titulo">El acto de crear</h1>
                 <p class="hero__subtitulo" data-i18n="hero_subtitulo">
                     Crear es mi lenguaje y la libertad de encontrar nuevas formas de hacerlo es lo que me define
                 </p>
-               <a href="#contacto" class="hero__boton" data-i18n="hero_boton">Consultar</a>
+                <a href="#contacto" class="hero__boton" data-i18n="hero_boton">Consultar</a>
             </div>
         </section>
+
         <!-- ============================
              SOBRE MICHELLE
              ============================ -->
         <section class="sobre" id="sobre">
             <div class="sobre__contenedor">
 
-                                <div class="sobre__imagen">
+                <div class="sobre__imagen">
                     <img src="assets/img/michelle.jpg" alt="Michelle, artista visual y tatuadora">
                 </div>
 
@@ -201,6 +210,7 @@
                 </div>
             </div>
         </section>
+
         <!-- ============================
              SERVICIOS
              ============================ -->
@@ -212,7 +222,7 @@
                     Cada propuesta se piensa y se trabaja de forma personalizada.
                 </p>
 
-                                <!-- ============ TATUAJES ============ -->
+                <!-- ============ TATUAJES ============ -->
                 <div class="servicio" id="tatuajes">
                     <div class="servicio__cabecera">
                         <h3 class="servicio__titulo" data-i18n="serv_tatuajes_titulo">Tatuajes</h3>
@@ -229,7 +239,7 @@
                                 <div class="subservicio__texto" data-i18n="tat1_texto">
                                     <p class="subservicio__subtitulo">🖤 MINI FLASH — TORINO</p>
                                     <p>Tatuajes pequeños, grandes historias.</p>
-                                    <p>Una selección de diseños originales disponibles en Torino desde <strong>60 €</strong>.</p>
+                                    <p>Una selección de diseños originales disponibles en Torino.</p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino</li>
                                         <li>🎨 Diseños originales</li>
@@ -249,7 +259,6 @@
                                     <p class="subservicio__subtitulo">✨ TU PEQUEÑO TATUAJE</p>
                                     <p>¿Tenés una idea pero no sabés cómo transformarla en un diseño?</p>
                                     <p>Creo un pequeño tatuaje personalizado a partir de tu idea.</p>
-                                    <p><strong>Tatuaje personalizado desde 80 €</strong></p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino</li>
                                         <li>📩 Escribime por DM y contame tu idea.</li>
@@ -267,7 +276,6 @@
                                     <p class="subservicio__subtitulo">🎨 PIEZA DE AUTOR</p>
                                     <p>No es un tatuaje cualquiera.</p>
                                     <p>Un diseño original creado para vos y transformado en un tatuaje.</p>
-                                    <p><strong>Desde 150 €</strong></p>
                                     <p>El tamaño y el precio se definirán según el proyecto.</p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino</li>
@@ -281,7 +289,7 @@
                         <article class="subservicio">
                             <div class="carousel" data-folder="tat-proyecto" data-count="10"></div>
                             <div class="subservicio__info">
-                              <h4 class="subservicio__nombre" data-i18n="tat6_titulo">Proyectos &amp; Covers</h4>
+                                <h4 class="subservicio__nombre" data-i18n="tat6_titulo">Proyectos &amp; Covers</h4>
                                 <div class="subservicio__texto" data-i18n="tat6_texto">
                                     <p class="subservicio__subtitulo">PROYECTO DE TATUAJE</p>
                                     <p>Una idea, una historia, una imagen o simplemente algo que querés llevar en la piel.</p>
@@ -303,7 +311,7 @@
                     </div>
                 </div>
 
-                                <!-- ============ CUADROS ============ -->
+                <!-- ============ OBRAS ============ -->
                 <div class="servicio" id="cuadros">
                     <div class="servicio__cabecera">
                         <h3 class="servicio__titulo" data-i18n="serv_cuadros_titulo">Obras</h3>
@@ -321,7 +329,6 @@
                                     <p class="subservicio__subtitulo">🎨 TU IDEA. MI ARTE.</p>
                                     <p>¿Hay una imagen, una historia o un lugar que quieras convertir en una obra?</p>
                                     <p>Creo piezas personalizadas a partir de tu idea, adaptando la composición, el estilo y el formato a tu espacio.</p>
-                                    <p><strong>Obras personalizadas desde 250 €</strong></p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino</li>
                                         <li>📩 Contame tu idea por DM y armamos el proyecto.</li>
@@ -331,8 +338,7 @@
                             </div>
                         </article>
 
-                
-                                                <article class="subservicio">
+                        <article class="subservicio">
                             <div class="carousel" data-folder="art-textil" data-count="25"></div>
                             <div class="subservicio__info">
                                 <h4 class="subservicio__nombre" data-i18n="tex1_titulo">Arte textil</h4>
@@ -354,49 +360,11 @@
                                 <a href="#contacto" class="subservicio__link" data-i18n="consultar">Consultar</a>
                             </div>
                         </article>
+
                     </div>
                 </div>
 
-                        <!-- ============================
-             OBRAS DISPONIBLES
-             ============================ -->
-        <section class="obras-disponibles" id="obras-disponibles">
-            <div class="obras-disponibles__contenedor">
-
-                <h2 class="obras-disponibles__titulo" data-i18n="obras_disp_titulo">Obras disponibles</h2>
-                <p class="obras-disponibles__intro" data-i18n="obras_disp_intro">
-                    Una selección de obras originales listas para encontrar su lugar. Escribime para coordinar la compra.
-                </p>
-
-                <div class="obras-disponibles__grid">
-
-                    <article class="obras-disponibles__card">
-                        <div class="obras-disponibles__imagen">
-                            <img src="assets/img/catalogo/cuadros/1.jpg" alt="Cuadros">
-                        </div>
-                        <div class="obras-disponibles__card-info">
-                            <h3 data-i18n="cat_cuadros">Cuadros</h3>
-                            <p data-i18n="obras_disp_cuadros_desc">Pinturas originales disponibles para tu espacio.</p>
-                            <button class="obras-disponibles__btn" data-categoria="cuadros" data-i18n="ver_catalogo">Ver catálogo</button>
-                        </div>
-                    </article>
-
-                    <article class="obras-disponibles__card">
-                        <div class="obras-disponibles__imagen">
-                            <img src="assets/img/catalogo/arte-para-llevar/1.jpg" alt="Arte para llevar">
-                        </div>
-                        <div class="obras-disponibles__card-info">
-                            <h3 data-i18n="cat_arte_llevar">Arte para llevar</h3>
-                            <p data-i18n="obras_disp_textil_desc">Piezas únicas hechas a mano, listas para acompañarte.</p>
-                            <button class="obras-disponibles__btn" data-categoria="arte-para-llevar" data-i18n="ver_catalogo">Ver catálogo</button>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-                 
-                               <!-- ============ MURALES ============ -->
+                <!-- ============ MURALES ============ -->
                 <div class="servicio" id="murales">
                     <div class="servicio__cabecera">
                         <h3 class="servicio__titulo" data-i18n="serv_murales_titulo">Murales</h3>
@@ -420,7 +388,6 @@
                                         <li>🏢 Negocios y locales</li>
                                         <li>🎭 Espacios culturales</li>
                                     </ul>
-                                    <p><strong>Murales desde 400 €</strong></p>
                                     <p>El precio final depende del tamaño, diseño, materiales y horas de trabajo.</p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino y alrededores</li>
@@ -445,7 +412,6 @@
                                         <li>🏢 Negocios y locales</li>
                                         <li>🎭 Espacios culturales</li>
                                     </ul>
-                                    <p><strong>Murales desde 700 €</strong></p>
                                     <p>El precio final depende del tamaño, diseño, materiales y horas de trabajo.</p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino y alrededores</li>
@@ -470,7 +436,6 @@
                                         <li>🏢 Negocios y locales</li>
                                         <li>🎭 Espacios culturales</li>
                                     </ul>
-                                    <p><strong>Murales desde 1000 €</strong></p>
                                     <p>El precio final depende del tamaño, diseño, materiales y horas de trabajo.</p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino y alrededores</li>
@@ -485,7 +450,6 @@
                 </div>
 
                 <!-- ============ EVENTOS ============ -->
-                                <!-- ============ EVENTOS ============ -->
                 <div class="servicio" id="eventos">
                     <div class="servicio__cabecera">
                         <h3 class="servicio__titulo" data-i18n="serv_eventos_titulo">Eventos</h3>
@@ -507,7 +471,6 @@
                                         <li>💍 Casamientos</li>
                                         <li>🖼️ Una obra original para conservar para siempre</li>
                                     </ul>
-                                    <p><strong>Experiencias desde 500 €</strong></p>
                                     <p>Podemos pintar:</p>
                                     <ul class="subservicio__lista">
                                         <li>✨ La ceremonia</li>
@@ -537,7 +500,7 @@
                                         <li>🖤 Tatuajes pequeños para invitados</li>
                                         <li>📍 Torino y alrededores</li>
                                     </ul>
-                                    <p><strong>Wedding Tattoo Experience desde 800 €</strong></p>
+                                    <p><strong>Wedding Tattoo Experience</strong></p>
                                     <p>Una experiencia diferente para una boda que nadie va a olvidar.</p>
                                     <p>📩 Consultá disponibilidad para tu fecha.</p>
                                 </div>
@@ -545,7 +508,7 @@
                             </div>
                         </article>
 
-                                                <article class="subservicio">
+                        <article class="subservicio">
                             <div class="carousel" data-folder="eve-privados" data-count="16"></div>
                             <div class="subservicio__info">
                                 <h4 class="subservicio__nombre" data-i18n="eve4_titulo">Eventos privados</h4>
@@ -579,7 +542,6 @@
                 </div>
 
                 <!-- ============ TALLERES ============ -->
-                                <!-- ============ TALLERES ============ -->
                 <div class="servicio" id="talleres">
                     <div class="servicio__cabecera">
                         <h3 class="servicio__titulo" data-i18n="serv_talleres_titulo">Talleres</h3>
@@ -603,7 +565,6 @@
                                         <li>🎨 Guía del artista</li>
                                         <li>🖼️ Tu propia creación para llevarte a casa</li>
                                     </ul>
-                                    <p><strong>Desde 40 € por persona</strong></p>
                                     <p>Ideal para grupos de amigos, cumpleaños, despedidas y eventos privados.</p>
                                     <ul class="subservicio__lista">
                                         <li>📍 Torino</li>
@@ -663,7 +624,79 @@
 
             </div>
         </section>
-                     <!-- ============================
+
+        <!-- ============================
+             OBRAS DISPONIBLES
+             ============================ -->
+        <section class="obras-disponibles" id="obras-disponibles">
+            <div class="obras-disponibles__contenedor">
+
+                <h2 class="obras-disponibles__titulo" data-i18n="obras_disp_titulo">Obras disponibles</h2>
+                <p class="obras-disponibles__intro" data-i18n="obras_disp_intro">
+                    Una selección de obras originales listas para encontrar su lugar. Escribime para coordinar la compra.
+                </p>
+
+                <div class="obras-disponibles__grid">
+
+                    <article class="obras-disponibles__card">
+                        <div class="obras-disponibles__imagen">
+                            <img src="assets/img/catalogo/cuadros/1.jpg" alt="Cuadros">
+                        </div>
+                        <div class="obras-disponibles__card-info">
+                            <h3 data-i18n="cat_cuadros">Cuadros</h3>
+                            <p data-i18n="obras_disp_cuadros_desc">Pinturas originales disponibles para tu espacio.</p>
+                            <button class="obras-disponibles__btn" data-categoria="cuadros" data-i18n="ver_catalogo">Ver catálogo</button>
+                        </div>
+                    </article>
+
+                    <article class="obras-disponibles__card">
+                        <div class="obras-disponibles__imagen">
+                            <img src="assets/img/catalogo/arte-para-llevar/1.jpg" alt="Arte para llevar">
+                        </div>
+                        <div class="obras-disponibles__card-info">
+                            <h3 data-i18n="cat_arte_llevar">Arte para llevar</h3>
+                            <p data-i18n="obras_disp_textil_desc">Piezas únicas hechas a mano, listas para acompañarte.</p>
+                            <button class="obras-disponibles__btn" data-categoria="arte-para-llevar" data-i18n="ver_catalogo">Ver catálogo</button>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
+             FAQ - PREGUNTAS FRECUENTES
+             ============================ -->
+        <section class="faq" id="faq">
+            <div class="faq__contenedor">
+                <h2 class="faq__titulo" data-i18n="faq_titulo">Preguntas frecuentes</h2>
+
+                <div class="faq__lista">
+                    <details class="faq__item">
+                        <summary data-i18n="faq_q1">¿Cómo reservo un turno para un tatuaje?</summary>
+                        <p data-i18n="faq_a1">Escribime por WhatsApp o Instagram con tu idea. Te respondo con disponibilidad y presupuesto.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary data-i18n="faq_q2">¿Hacés envíos fuera de Torino?</summary>
+                        <p data-i18n="faq_a2">Sí, puedo coordinar envíos nacionales e internacionales de obras y piezas textiles.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary data-i18n="faq_q3">¿Cuánto tarda un tatuaje personalizado?</summary>
+                        <p data-i18n="faq_a3">Depende del tamaño y complejidad. Un tatuaje pequeño puede ser en una sesión; proyectos grandes requieren varias.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary data-i18n="faq_q4">¿Puedo encargar un cuadro a partir de una foto?</summary>
+                        <p data-i18n="faq_a4">Sí, envíame la imagen y la referencia de formato. Te preparo una propuesta personalizada.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary data-i18n="faq_q5">¿Los talleres son para principiantes?</summary>
+                        <p data-i18n="faq_a5">Sí, no se necesita experiencia previa. Solo ganas de experimentar y crear.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================
              CONTACTO
              ============================ -->
         <section class="contacto" id="contacto">
@@ -671,7 +704,7 @@
 
                 <h2 class="contacto__titulo" data-i18n="contacto_titulo">Contacto</h2>
                 <p class="contacto__intro" data-i18n="contacto_intro">
-                    Contame tu idea y armamos el proyecto juntas.
+                    Contame tu idea y armamos el proyecto juntos.
                 </p>
 
                 <div class="contacto__grid">
@@ -716,20 +749,20 @@
 
                         <h3 class="contacto__form-titulo" data-i18n="form_titulo">Pedí tu consulta</h3>
 
-                         <div class="campo">
+                        <div class="campo">
                             <label for="nombre" data-i18n="form_nombre">Nombre y Apellido</label>
                             <input type="text" id="nombre" name="nombre" required>
                         </div>
 
-                                   <div class="campo">
+                        <div class="campo">
                             <label for="servicio" data-i18n="form_servicio">Servicio</label>
-                                                        <select id="servicio" name="servicio" required>
+                            <select id="servicio" name="servicio" required>
                                 <option value="" data-i18n="form_servicio_default">Elegí un servicio</option>
                                 <optgroup label="Tatuajes">
                                     <option value="Oferta de tatuajes pequeños" data-i18n="opt_tat_pequenos">Oferta de tatuajes pequeños</option>
                                     <option value="Tatuaje personalizado" data-i18n="opt_tat_personalizado">Tatuaje personalizado</option>
                                     <option value="Tatuajes medianos / grandes" data-i18n="opt_tat_medianos">Tatuajes medianos / grandes</option>
-                                    <option value="Proyectos & Covers" data-i18n="opt_tat_proyectos">Proyectos &amp; Covers</option>
+                                    <option value="Proyectos &amp; Covers" data-i18n="opt_tat_proyectos">Proyectos &amp; Covers</option>
                                 </optgroup>
                                 <optgroup label="Obras">
                                     <option value="Obras personalizadas" data-i18n="opt_obr_personalizadas">Obras personalizadas</option>
@@ -777,29 +810,31 @@
                 </div>
             </div>
         </section>
-                     
-                   
+
     </main>
 
-           <footer class="footer">
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="footer">
         <div class="footer__contenedor">
 
             <div class="footer__columna">
                 <h3 class="footer__logo">
-    <img src="assets/img/logo.jpg" alt="Michelle">
-</h3>
+                    <img src="assets/img/logo.jpg" alt="Michelle">
+                </h3>
                 <p class="footer__descripcion" data-i18n="footer_descripcion">
                     Artista visual y tatuadora. Creo desde Torino, Italia, para todo el mundo.
                 </p>
                 <div class="footer__idiomas">
                     <div class="idiomas" id="idiomasFooter">
                         <button class="idiomas__toggle" aria-label="Cambiar idioma">
-                            <img src="https://flagcdn.com/w40/es.png" alt="Idioma actual">
+                            <img src="https://flagcdn.com/w40/ar.png" alt="Idioma actual">
                             <span class="idiomas__flecha">▾</span>
                         </button>
                         <div class="idiomas__menu">
                             <button class="idiomas__opcion idiomas__opcion--activo" data-idioma="es">
-                                <img src="https://flagcdn.com/w40/es.png" alt="Español">
+                                <img src="https://flagcdn.com/w40/ar.png" alt="Español">
                                 <span>Español</span>
                             </button>
                             <button class="idiomas__opcion" data-idioma="it">
@@ -862,9 +897,10 @@
         </div>
 
         <div class="footer__bottom">
-            <p>&copy; 2026 Michelle.tttink . <span data-i18n="footer_derechos">Todos los derechos reservados.</span></p>
+            <p>&copy; 2026 Michelle.tttink. <span data-i18n="footer_derechos">Todos los derechos reservados.</span></p>
         </div>
     </footer>
+
     <!-- ============================
          MODAL DE SUB-SERVICIOS
          ============================ -->
@@ -875,33 +911,29 @@
             <div class="modal__info" id="modalInfo"></div>
         </div>
     </div>
-            <!-- ============================
+
+    <!-- ============================
          MODAL DEL CATÁLOGO
          ============================ -->
     <div class="modal-catalogo" id="modalCatalogo">
         <div class="modal-catalogo__contenido">
             <button class="modal-catalogo__cerrar" id="modalCatalogoCerrar" aria-label="Cerrar">×</button>
 
-            <!-- ============ VISTA GRILLA ============ -->
+            <!-- VISTA GRILLA -->
             <div class="catalogo-vista" id="catalogoVistaGrilla">
-
                 <h2 class="modal-catalogo__titulo" data-i18n="catalogo_titulo">Catálogo de obras</h2>
                 <p class="modal-catalogo__intro" data-i18n="catalogo_intro">
                     Una selección de obras originales disponibles.
                 </p>
-
                 <div class="modal-catalogo__tabs" id="catalogoTabs"></div>
-
                 <div class="modal-catalogo__grid" id="catalogoGrid"></div>
             </div>
 
-            <!-- ============ VISTA PRODUCTO ============ -->
+            <!-- VISTA PRODUCTO -->
             <div class="catalogo-vista catalogo-vista--oculta" id="catalogoVistaProducto">
-
                 <button class="catalogo-volver" id="catalogoVolver">
                     ← <span data-i18n="volver_catalogo">Volver al catálogo</span>
                 </button>
-
                 <div class="producto-detalle">
                     <div class="producto-detalle__imagenes">
                         <div class="producto-detalle__imagen-principal">
@@ -913,8 +945,8 @@
                         <p class="producto-detalle__tecnica" id="productoTecnica">—</p>
                         <p class="producto-detalle__medidas" id="productoMedidas">—</p>
 
-                        <a href="#" target="_blank" rel="noopener" class="producto-detalle__boton" id="productoWhatsapp">    
-                        <span data-i18n="consultar_whatsapp">Consultar por WhatsApp</span>
+                        <a href="#" target="_blank" rel="noopener" class="producto-detalle__boton" id="productoWhatsapp">
+                            <span data-i18n="consultar_whatsapp">Consultar por WhatsApp</span>
                         </a>
 
                         <div class="producto-detalle__info-extra">
@@ -928,6 +960,34 @@
 
         </div>
     </div>
+
+    <!-- ============================
+         BOTÓN FLOTANTE DE WHATSAPP
+         ============================ -->
+    <a href="https://wa.me/393520461199?text=Hola%20Michelle!%20%F0%9F%91%8B%F0%9F%A4%8D%0A%0ATe%20escribo%20desde%20tu%20web%20%F0%9F%8E%A8"
+       target="_blank"
+       rel="noopener"
+       class="whatsapp-flotante"
+       aria-label="Escribime por WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.82.732 5.464 2.016 7.762L0 32l8.428-2.204A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.208a13.14 13.14 0 01-6.7-1.834l-.48-.286-4.994 1.306 1.334-4.866-.314-.502A13.11 13.11 0 012.792 16C2.792 8.704 8.704 2.792 16 2.792S29.208 8.704 29.208 16 23.296 29.208 16 29.208zm7.208-9.832c-.394-.198-2.334-1.152-2.696-1.284-.362-.132-.626-.198-.89.198-.264.396-1.022 1.284-1.254 1.548-.23.264-.462.296-.856.1-.394-.198-1.664-.614-3.17-1.956-1.172-1.044-1.962-2.334-2.192-2.728-.23-.396-.024-.61.174-.806.178-.176.396-.462.594-.692.198-.23.264-.396.396-.66.132-.264.066-.494-.034-.692-.1-.198-.89-2.148-1.22-2.94-.32-.772-.646-.668-.89-.68-.23-.01-.494-.012-.758-.012a1.46 1.46 0 00-1.056.494c-.362.396-1.386 1.352-1.386 3.302s1.42 3.83 1.618 4.096c.198.264 2.792 4.266 6.766 5.982.946.408 1.684.652 2.26.834.95.302 1.814.26 2.498.158.762-.114 2.334-.954 2.664-1.876.33-.922.33-1.712.23-1.876-.098-.164-.362-.264-.756-.462z"/>
+        </svg>
+        <span class="whatsapp-flotante__texto" data-i18n="whatsapp_flotante">Escribime</span>
+    </a>
+
+    <!-- ============================
+         BOTÓN VOLVER ARRIBA
+         ============================ -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
+
+    <!-- ============================
+         LIGHTBOX
+         ============================ -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox__cerrar" aria-label="Cerrar">×</button>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
     <script src="js/app.js"></script>
 </body>
 </html>
