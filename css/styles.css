@@ -2662,22 +2662,32 @@ main {
 
     /* ---------- BOTÓN FLOTANTE WHATSAPP ---------- */
     .whatsapp-flotante {
-        width: 52px;
-        height: 52px;
-        padding: 0;
-        border-radius: 50%;
-        bottom: 18px;
-        right: 14px;
-        gap: 0;
+        width: 54px !important;
+        height: 54px !important;
+        min-width: 54px !important;
+        max-width: 54px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        bottom: 18px !important;
+        right: 14px !important;
+        gap: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
     }
 
     .whatsapp-flotante svg {
-        width: 26px;
-        height: 26px;
+        width: 28px !important;
+        height: 28px !important;
+        margin: 0 !important;
     }
 
     .whatsapp-flotante__texto {
-        display: none;
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
     }
 
     /* ---------- BOTÓN VOLVER ARRIBA ---------- */
